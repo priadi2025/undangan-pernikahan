@@ -3,31 +3,41 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Undangan Pernikahan Priadi & Salsabila</title>
+  <title>Undangan Pernikahan Melan & Anton</title>
   <style>
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: #fffaf2;
+      background: #fff;
       color: #444;
       overflow: hidden;
     }
+
     .opening {
       position: fixed;
       top: 0; left: 0;
       width: 100%; height: 100vh;
-      background: linear-gradient(#fef6e4, #fff);
+      background: url('Desain%20tanpa%20judul%20(1).png') no-repeat center center;
+      background-size: cover;
+      z-index: 10;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      z-index: 10;
       text-align: center;
     }
+    .opening::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.4); /* agar teks terlihat */
+      z-index: -1;
+    }
     .opening h1 {
-      font-size: 2.2rem;
+      font-size: 2rem;
       margin-bottom: 0.5rem;
-      color: #b78a28;
+      color: white;
     }
     .open-btn {
       padding: 0.8rem 1.8rem;
@@ -38,37 +48,20 @@
       border-radius: 8px;
       cursor: pointer;
     }
+
     .content {
       padding: 2rem 1rem;
       max-width: 700px;
       margin: auto;
     }
-    .section {
-      margin-bottom: 2rem;
-    }
+    .section { margin-bottom: 2rem; }
     .countdown {
       font-size: 1.5rem;
       font-weight: bold;
       color: #b78a28;
     }
-    .quote {
-      font-style: italic;
-      background: #fff3d1;
-      padding: 1rem;
-      border-left: 4px solid #d4af37;
-      margin: 1rem 0;
-    }
-    footer {
-      text-align: center;
-      padding: 2rem 1rem;
-      font-size: 0.9rem;
-      background: #fffaf2;
-      color: #666;
-    }
     .map-container iframe {
-      width: 100%;
-      height: 300px;
-      border: 0;
+      width: 100%; height: 300px; border: 0;
     }
     .rekening-box {
       background: #f6f0dd;
@@ -85,26 +78,31 @@
       margin-top: 0.5rem;
       cursor: pointer;
     }
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      background: #fffaf2;
+      font-size: 0.9rem;
+      color: #666;
+    }
   </style>
 </head>
 <body>
 
-<!-- Musik Latar -->
 <audio id="bgMusic" loop>
   <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mp3">
 </audio>
 
 <!-- Pembuka -->
 <div class="opening" id="opening">
-  <h1>Priadi & Salsabila</h1>
-  <p>Undangan Pernikahan</p>
+  <h1>Melan & Anton</h1>
+  <p style="color:white">Undangan Pernikahan</p>
   <button class="open-btn" onclick="openInvitation()">Buka Undangan</button>
 </div>
 
-<!-- Konten Utama -->
+<!-- Konten Undangan -->
 <div id="mainContent" style="display:none;">
   <div class="content">
-    
     <div class="section">
       <h2>Hitung Mundur</h2>
       <p class="countdown" id="countdown"></p>
@@ -112,9 +110,9 @@
 
     <div class="section">
       <h2>Detail Acara</h2>
-      <p><strong>Akad Nikah:</strong><br/>Sabtu, 20 Juli 2025, pukul 08.00 WIB</p>
-      <p><strong>Resepsi:</strong><br/>Sabtu, 20 Juli 2025, pukul 11.00 WIB</p>
-      <p><strong>Lokasi:</strong><br/>Gedung Serbaguna, Jakarta</p>
+      <p><strong>Akad:</strong> Sabtu, 20 Juli 2025 - 08.00 WIB</p>
+      <p><strong>Resepsi:</strong> Sabtu, 20 Juli 2025 - 11.00 WIB</p>
+      <p><strong>Tempat:</strong> Gedung Serbaguna, Jakarta</p>
     </div>
 
     <div class="section map-container">
@@ -124,25 +122,16 @@
 
     <div class="section rekening-box">
       <h3>Nomor Rekening</h3>
-      <p>1234567890 (BCA a.n. Priadi)</p>
+      <p>1234567890 (BCA a.n. Melan)</p>
       <button class="copy-btn" onclick="copyRekening()">Salin Nomor</button>
-    </div>
-
-    <div class="section">
-      <h2>Doa & Harapan</h2>
-      <div class="quote">
-        “Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu merasa tenteram kepadanya...” (QS. Ar-Rum: 21)
-      </div>
     </div>
   </div>
 
   <footer>
-    Terima kasih atas doa dan kehadirannya.<br/>
-    Priadi & Salsabila
+    Terima kasih atas doa dan kehadirannya.<br/> Melan & Anton
   </footer>
 </div>
 
-<!-- Script -->
 <script>
   function openInvitation() {
     document.getElementById("opening").style.display = "none";
@@ -158,7 +147,6 @@
     });
   }
 
-  // Countdown
   const countdownDate = new Date("2025-07-20T08:00:00").getTime();
   const countdownElement = document.getElementById("countdown");
 
